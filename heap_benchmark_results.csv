@@ -1,0 +1,51 @@
+Heap Type,Trial,Insertion Time (ms),Deletion Time (ms)
+Fibonacci Heap,1,12.9223,2.7832
+Fibonacci Heap,2,7.6051,1.0972
+Fibonacci Heap,3,5.3671,0.83
+Fibonacci Heap,4,5.8169,0.8557
+Fibonacci Heap,5,3.9116,0.7075
+Fibonacci Heap,6,4.0732,0.2173
+Fibonacci Heap,7,2.1786,0.1355
+Fibonacci Heap,8,3.0911,0.24
+Fibonacci Heap,9,2.0094,0.1461
+Fibonacci Heap,10,2.3406,0.2081
+4-ary Heap (Floyd's Trick),1,3.6951,25.1197
+4-ary Heap (Floyd's Trick),2,1.937,15.738
+4-ary Heap (Floyd's Trick),3,2.792,13.4341
+4-ary Heap (Floyd's Trick),4,1.9192,12.5365
+4-ary Heap (Floyd's Trick),5,2.0144,14.0553
+4-ary Heap (Floyd's Trick),6,1.8654,37.806
+4-ary Heap (Floyd's Trick),7,1.9627,57.6947
+4-ary Heap (Floyd's Trick),8,2.3584,43.8437
+4-ary Heap (Floyd's Trick),9,1.976,31.9374
+4-ary Heap (Floyd's Trick),10,2.2547,37.0759
+4-ary Heap,1,11.6332,22.1178
+4-ary Heap,2,7.7283,6.1812
+4-ary Heap,3,8.5872,6.3071
+4-ary Heap,4,8.5199,6.4561
+4-ary Heap,5,2.9475,4.385
+4-ary Heap,6,5.3083,8.1018
+4-ary Heap,7,3.3186,4.0077
+4-ary Heap,8,3.8084,3.2467
+4-ary Heap,9,2.8055,6.1367
+4-ary Heap,10,3.1008,3.599
+Binary Heap (Floyd's Trick),1,4.4434,2.4023
+Binary Heap (Floyd's Trick),2,2.2901,2.2024
+Binary Heap (Floyd's Trick),3,3.1593,1.8424
+Binary Heap (Floyd's Trick),4,2.4002,1.6299
+Binary Heap (Floyd's Trick),5,2.544,1.9
+Binary Heap (Floyd's Trick),6,4.5956,2.1923
+Binary Heap (Floyd's Trick),7,2.9533,4.0221
+Binary Heap (Floyd's Trick),8,2.7812,1.361
+Binary Heap (Floyd's Trick),9,10.6137,2.6597
+Binary Heap (Floyd's Trick),10,2.0509,2.4744
+Binary Heap,1,4.8295,5.4726
+Binary Heap,2,4.1838,4.8553
+Binary Heap,3,8.8125,11.9406
+Binary Heap,4,3.7863,14.2375
+Binary Heap,5,3.6417,4.983
+Binary Heap,6,3.6993,5.4016
+Binary Heap,7,4.4651,5.3785
+Binary Heap,8,3.66,6.3436
+Binary Heap,9,4.0564,4.8932
+Binary Heap,10,5.0308,8.4002
