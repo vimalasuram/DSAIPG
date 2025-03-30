@@ -1,18 +1,22 @@
 /*
- * Copyright (c) 2024. Robin Hillyard
- */
-
+* Copyright (c) 2024. Robin Hillyard
+*/
+ 
 package com.phasmidsoftware.dsaipg.projects.mcts.tictactoe;
+ 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+import java.util.Optional;
+import java.util.Random;
 
 import com.phasmidsoftware.dsaipg.projects.mcts.core.Game;
 import com.phasmidsoftware.dsaipg.projects.mcts.core.Move;
 import com.phasmidsoftware.dsaipg.projects.mcts.core.State;
-
-import java.util.*;
-
+ 
 /**
- * Class which models the game of TicTacToe.
- */
+* Class which models the game of TicTacToe.
+*/
 public class TicTacToe implements Game<TicTacToe> {
     /**
      * Main program to run a random TicTacToe game.
@@ -25,11 +29,11 @@ public class TicTacToe implements Game<TicTacToe> {
         if (state.winner().isPresent()) System.out.println("TicTacToe: winner is: " + state.winner().get());
         else System.out.println("TicTacToe: draw");
     }
-
+ 
     public static final int X = 1;
     public static final int O = 0;
     public static final int blank = -1;
-
+ 
     /**
      * Method to yield a starting position.
      *
@@ -38,7 +42,7 @@ public class TicTacToe implements Game<TicTacToe> {
     static Position startingPosition() {
         return Position.parsePosition(". . .\n. . .\n. . .", blank);
     }
-
+ 
     /**
      * Run a TicTacToe game.
      *
@@ -53,7 +57,7 @@ public class TicTacToe implements Game<TicTacToe> {
         }
         return state;
     }
-
+ 
     /**
      * This method determines the opening player (the "white" by analogy with chess).
      * NOTE this should agree with
@@ -63,7 +67,7 @@ public class TicTacToe implements Game<TicTacToe> {
     public int opener() {
         return X;
     }
-
+ 
     /**
      * Get the starting state for this game.
      *
@@ -72,7 +76,7 @@ public class TicTacToe implements Game<TicTacToe> {
     public State<TicTacToe> start() {
         return new TicTacToeState();
     }
-
+ 
     /**
      * Primary constructor.
      *
@@ -81,7 +85,7 @@ public class TicTacToe implements Game<TicTacToe> {
     public TicTacToe(Random random) {
         this.random = random;
     }
-
+ 
     /**
      * Secondary constructor.
      *
@@ -90,16 +94,16 @@ public class TicTacToe implements Game<TicTacToe> {
     public TicTacToe(long seed) {
         this(new Random(seed));
     }
-
+ 
     /**
      * Secondary constructor which uses the current time as seed.
      */
     public TicTacToe() {
         this(System.currentTimeMillis());
     }
-
+ 
     private final Random random;
-
+ 
     /**
      * Inner class to define a Move of TicTacToe.
      */
@@ -110,7 +114,7 @@ public class TicTacToe implements Game<TicTacToe> {
         public int player() {
             return player;
         }
-
+ 
         /**
          * Primary constructor.
          *
@@ -123,19 +127,19 @@ public class TicTacToe implements Game<TicTacToe> {
             this.i = i;
             this.j = j;
         }
-
+ 
         /**
          * @return this move as an array of two coordinates: row and column.
          */
         public int[] move() {
             return new int[]{i, j};
         }
-
+ 
         private final int player;
         private final int i;
         private final int j;
     }
-
+ 
     /**
      * Inner class to define a State of TicTacToe.
      */
@@ -148,7 +152,7 @@ public class TicTacToe implements Game<TicTacToe> {
         public TicTacToe game() {
             return TicTacToe.this;
         }
-
+ 
         /**
          * Method to determine the player who plays to this State.
          * The first player to play is considered to be "white" by analogy with chess.
@@ -162,14 +166,14 @@ public class TicTacToe implements Game<TicTacToe> {
                 default -> blank;
             };
         }
-
+ 
         /**
          * @return the Position of this State.
          */
         public Position position() {
             return this.position;
         }
-
+ 
         /**
          * Method to determine if this State represents the end of the game?
          *
@@ -178,7 +182,7 @@ public class TicTacToe implements Game<TicTacToe> {
         public Optional<Integer> winner() {
             return position.winner();
         }
-
+ 
         /**
          * A random source associated with this State.
          * Currently, it is set to the same random as used by TicTacToe.
@@ -189,7 +193,7 @@ public class TicTacToe implements Game<TicTacToe> {
         public Random random() {
             return random;
         }
-
+ 
         /**
          * Get the moves that can be made directly from the given state.
          * The moves can be in any order--the order will be randomized for usage.
@@ -203,7 +207,7 @@ public class TicTacToe implements Game<TicTacToe> {
             for (int[] coordinates : moves) list.add(new TicTacToeMove(player, coordinates[0], coordinates[1]));
             return list;
         }
-
+ 
         /**
          * Implement the given move on the given state.
          *
@@ -215,7 +219,7 @@ public class TicTacToe implements Game<TicTacToe> {
             int[] ints = ticTacToeMove.move();
             return new TicTacToeState(position.move(move.player(), ints[0], ints[1]));
         }
-
+ 
         /**
          * Is the game over?
          *
@@ -224,22 +228,23 @@ public class TicTacToe implements Game<TicTacToe> {
         public boolean isTerminal() {
             return position.full() || position.winner().isPresent();
         }
-
+ 
         @Override
         public String toString() {
             return "TicTacToe{\n" +
                     position +
                     "\n}";
         }
-
+ 
         public TicTacToeState(Position position) {
             this.position = position;
         }
-
+ 
         public TicTacToeState() {
             this(startingPosition());
         }
-
+ 
         private final Position position;
     }
 }
+ 
